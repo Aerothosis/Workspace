@@ -1,0 +1,128 @@
+package proj7a;
+
+/*
+Program: MultClassMath.java
+Author: Mike
+Date: 2-23-2015
+Purpose: Create a program with multiple methods of varying type to receive
+input from a user and perform a calculation with the input provided.
+*/
+
+import java.awt.event.*;
+import javax.swing.*;
+
+public class MultClassMath extends JFrame implements ActionListener
+{
+	JLabel num1LBL = new JLabel("Number 1");
+	JLabel num2LBL = new JLabel("Number 2");
+	JTextField num1Input = new JTextField("");
+	JTextField num2Input = new JTextField("");
+	JButton calculate = new JButton("Calculate");
+	JButton reset = new JButton("Reset");
+	JTextArea output = new JTextArea("Results");
+	
+	static JFrame frame = null;
+	
+	static double num1 = 0.0;
+	static double num2 = 0.0;
+	static double resultA = 0.0;
+	static double resultS = 0.0;
+	static double resultM = 0.0;
+	static double resultD = 0.0;
+	
+	MultClassMath()
+	{
+		this.setSize(300, 300);
+		this.setLocation(100, 100);
+		this.setTitle("Multiple Class Math");
+		
+		this.setLayout(null);
+		
+		num1LBL.setSize(100, 35);
+		num1LBL.setLocation(10, 10);
+		this.add(num1LBL);
+		
+		num1Input.setSize(100, 35);
+		num1Input.setLocation(10, 50);
+		this.add(num1Input);
+		
+		num2LBL.setSize(100, 35);
+		num2LBL.setLocation(130, 10);
+		this.add(num2LBL);
+		
+		num2Input.setSize(100, 35);
+		num2Input.setLocation(130, 50);
+		this.add(num2Input);
+		
+		output.setSize(100, 80);
+		output.setLocation(10, 95);
+		output.setEditable(false);
+		this.add(output);
+		
+		calculate.setSize(100, 25);
+		calculate.setLocation(130, 95);
+		calculate.addActionListener(this);
+		this.add(calculate);
+		
+		reset.setSize(100, 25);
+		reset.setLocation(130, 130);
+		reset.addActionListener(this);
+		this.add(reset);
+	}
+	
+	public static void main(String[] args) 
+	{
+		frame = new MultClassMath();
+		frame.setVisible(true);
+		
+		
+	}
+
+	static void add(double d, double e)
+	{
+		return;
+	}
+	
+	static void subtract(double d, double e)
+	{
+		if(num2 <= num1)
+			resultS = num1 - num2;
+		else
+			resultS = num2 - num1;
+	}
+	
+	static double multiply(double d, double e)
+	{
+		return d*e;
+	}
+	static void divide(String one, String two)
+	{
+		
+	}
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == reset)
+		{
+			num1Input.setText("");
+			num2Input.setText("");
+			output.setText("Results:");
+		}
+		else if(ae.getSource() == calculate)
+		{
+			
+			
+			resultA = add(num1, num2);
+			//resultS = subtract(num1, num2);
+			resultM = multiply(num1, num2);
+			
+			
+			String resultAll = 
+					"Results:" + '\n' +
+					"Add: " + resultA + '\n' +
+					"Subtract: " + resultS + '\n' +
+					"Multiply: " + resultM + '\n' +
+					"Divide: ";
+			output.setText(resultAll);
+		}
+	}
+}

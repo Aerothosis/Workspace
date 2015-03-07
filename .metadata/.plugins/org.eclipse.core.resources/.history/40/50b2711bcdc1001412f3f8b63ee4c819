@@ -1,0 +1,48 @@
+
+
+import java.io.FileReader;
+import java.util.Scanner;
+
+import javax.swing.*;
+
+public class NumberAnalysis 
+{
+	public static void main(String[] args) 
+	{
+		double total = 0;
+		double average = 0;
+		int highest = 0;
+		int lowest = 5;
+		int counter = 0;
+		int[] numbers = new int[20];
+
+		
+		
+			
+		while(inFile.hasNext())
+		{
+			rainfall[counter] = inFile.nextDouble();
+			
+			counter++;
+		}
+		
+		for(counter = 0; counter < rainfall.length; counter++)
+		{
+			total += rainfall[counter];
+			
+			if(rainfall[counter] > highest)
+			{
+				highest = rainfall[counter];
+				highestIndex = counter;
+			}
+			if(rainfall[counter] < lowest)
+			{
+				lowest = rainfall[counter];
+				lowestIndex = counter;
+			}
+		}
+		
+		average = total / rainfall.length;
+	}
+
+}

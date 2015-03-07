@@ -1,0 +1,225 @@
+Alarm Communications Center
+
+
+  Communication Control Room
+37
+400
+  Kitchenette
+3
+35
+  Private Restroom
+4
+43
+  Telecommunications/Computer Room1
+19
+200
+Subtotal Alarm Communications Center
+63
+678
+
+
+
+Training Facilities
+
+
+  Training Room
+39
+420
+  Asst. Chief of Training Office
+12
+130
+  Testing Room
+9
+100
+  Technical Library/Audiovisual Storage
+14
+150
+  Physical Fitness
+45
+480
+Subtotal Training Facilities
+119
+1280
+
+
+
+Living Quarters
+
+
+  Private Bedroom at 110 SF/ea (12/HQ)
+123
+1,320
+  Restrooms/Showers
+42
+450
+  Personal Lockers
+34
+370
+  Laundry
+15
+165
+Subtotal Living Quarters
+214
+2,305
+
+
+
+Recreation/Dining
+
+
+  Television Room	
+33
+350
+  Day Room
+28
+300
+  Vending
+4
+40
+  Kitchen
+19
+200
+  Kitchen Storage
+5
+50
+  Serving Line
+9
+100
+  Dining Area
+28
+300
+  Subtotal Recreation/Dining Areas
+124
+1,340
+
+
+
+Administration
+
+
+Vestibule
+7
+80
+Entrance/Reception
+19
+200
+Fire Chief Office
+14
+150
+Fire Chief Conference Room
+12
+130
+Fire Chief’s Bedroom
+12
+130
+Asst. Chief Office
+12
+130
+Asst. Chief’s Bedroom
+12
+130
+Supervisor Office
+0
+0
+Supervisor Bedroom
+0
+0
+Restroom
+14
+150
+Administrative Staff Office
+11
+120
+Administrative Storage
+4
+40
+Copy
+5
+50
+Coats
+3
+30
+Subtotal Administration Areas
+124
+1,340
+
+
+
+Maintenance, Repair Storage & Support
+
+
+Fire Fighting Agent Storage
+28
+300
+Hose Storage and Drying
+23
+250
+Fire Extinguisher Maint/Repair and Storage
+37
+400
+SCBA Maintenance and Repair
+48
+520
+Protective Clothing Lockers
+20
+220
+Protective Clothing Laundry
+33
+350
+Disinfecting Facilities
+14
+150
+Outdoor Tire Storage2
+(20)
+(220)
+Outdoor Fire Extinguisher Storage2
+(46)
+(500)
+Outdoor Mechanical Equipment Enclosure2
+(47)
+(510)
+General Supply
+26
+280
+Medical Storage
+20
+220
+Janitor Closet
+5
+50
+Mech/Elec/Telephone/Compressor Room
+23
+250
+Subtotal Maintenance, Repair, Storage and Support
+278
+2,990
+
+
+
+Apparatus Room
+
+
+Bays plus Command Vehicle (See dwg 730-10-1 & -2)
+
+
+Aerial Ladder
+
+
+Subtotal Apparatus Room
+368
+3,962
+
+
+
+Subtotal Excluding Apparatus Room
+830
+9,933
+Net to Gross (25% of Subtotal Excluding Apparatus Room)
+280
+2,235
+Net to Gross (7% of Apparatus Room)
+26
+277
+Total Space Requirements:
+1,432
+15,412

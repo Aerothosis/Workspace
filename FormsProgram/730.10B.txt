@@ -1,0 +1,45 @@
+Ambulance Bays
+0
+
+Ambulance Bay for Spare Engine
+0
+0
+Ambulance Admin. Space
+0
+0
+Ambulance Storage
+0
+0
+Ambulance Bunks (3 PN per ambulance) 
+0
+0
+Fire Prevention Bureau (4 PN at 150 SF/ea)
+56
+600
+Hazardous Waste Storage
+14
+150
+Portable Air Unit
+56
+600
+Heavy Rescue Vehicle 
+33
+360
+Boat/Trailer Bay
+0
+0
+Boat Equipment Storage
+0
+100
+Disaster Preparedness Administration
+8
+90
+Disaster Preparedness Storage
+9
+100
+Emergency Response Center
+18
+200
+Total Additive Functions:
+202
+2,200

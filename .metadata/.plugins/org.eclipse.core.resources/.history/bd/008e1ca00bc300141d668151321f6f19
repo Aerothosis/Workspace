@@ -1,0 +1,130 @@
+package main;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import java.io.*;
+
+
+public class CenterStuff extends JPanel
+{
+	static JLabel test = new JLabel("");
+	static JPanel comp = new JPanel();
+	
+	static JScrollPane center = null;
+	
+	static JPanel descC = new JPanel();
+	static JLabel descT = new JLabel("Description");
+	static JTextArea desc = new JTextArea("");
+	static JScrollPane descScrl = new JScrollPane(desc);
+	
+	static JPanel purpP = new JPanel();
+	static JLabel purpT = new JLabel("Planing Criteria");
+	static JTextArea purp = new JTextArea("");
+	static JScrollPane purpScrl = new JScrollPane(purp);
+	
+	static JPanel loadP = new JPanel();
+	static JLabel loadT = new JLabel("Loading");
+	static JTextArea load = new JTextArea("");
+	static JScrollPane loadScrl = new JScrollPane(load);
+	
+	static int one = 0;
+	static int two = 0;
+	static int three = 0;
+	static int four = 0;
+	static int five = 0;
+	
+	static int descExists = 0;
+	
+	
+	public static JPanel CreateGUI()
+	{	
+		comp.setLayout(new GridLayout(5,1));
+		
+		comp.add(Description());
+		comp.add(Purpose());
+		comp.add(Loading());
+		
+		
+		return comp;
+	}
+	
+	public static JPanel Description()
+	{
+		descC.setPreferredSize(new Dimension(800, 250));
+		descC.setLayout(null);
+		//descC.setLayout(new BorderLayout());
+		//descC.setLocation(10, 10);
+		
+		descT.setSize(100, 30);
+		descT.setLocation(0,0);
+		descScrl.setSize(400, 200);
+		descScrl.setLocation(0, 35);
+		descC.add(descT);
+		descC.add(descScrl);
+
+		
+		descC.setVisible(true);
+
+
+		
+		return descC;
+		
+	}
+	
+	public static JPanel Purpose()
+	{
+		purpP.setPreferredSize(new Dimension(800, 250));
+		purpP.setLayout(null);
+
+		//if(one == 1)
+		//{
+		//	purpP.setLocation(10, 220);
+		//}
+		//else
+		//{
+		//	purpP.setLocation(10, 10);
+		//}
+		
+		purpT.setSize(100, 30);
+		purpT.setLocation(0,0);
+		purpScrl.setSize(400, 200);
+		purpScrl.setLocation(0,35);
+		purpP.add(purpT, BorderLayout.NORTH);
+		purpP.add(purpScrl, BorderLayout.CENTER);
+
+		purpP.setVisible(true);
+
+		
+		return purpP;
+	}
+	
+	public static JPanel Loading()
+	{
+		loadP.setPreferredSize(new Dimension(800, 250));
+		loadP.setLayout(null);
+
+		//if(one == 1)
+		//{
+		//	purpP.setLocation(10, 220);
+		//}
+		//else
+		//{
+		//	purpP.setLocation(10, 10);
+		//}
+		
+		loadT.setSize(100, 30);
+		loadT.setLocation(0,0);
+		loadScrl.setSize(400, 200);
+		loadScrl.setLocation(0,35);
+		loadP.add(loadT, BorderLayout.NORTH);
+		loadP.add(loadScrl, BorderLayout.CENTER);
+
+		loadP.setVisible(true);
+
+		
+		return loadP;
+	}
+}
+	

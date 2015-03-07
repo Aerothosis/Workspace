@@ -1,0 +1,113 @@
+package main;
+
+import javax.swing.*;
+import com.aspose.*;
+import com.aspose.words.*;
+
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+
+public class PreviewWindow extends JFrame implements ActionListener
+{
+	static JTextField input = new JTextField("");
+	JButton apply = new JButton("Apply");
+	Scanner checkFile = null;
+	PrintWriter outFile = null;
+	static DocumentBuilder builder = null;
+	
+	static JFrame frame = null;
+	
+	static String desc = "";
+
+	PreviewWindow()
+	{
+		this.setSize(400, 400);
+		this.setLocation(200, 200);
+		this.setTitle("Preview Pane");
+		this.setLayout(null);
+		
+		input.setSize(200, 200);
+		input.setLocation(10, 10);
+		this.add(input);
+		
+		apply.setSize(100, 30);
+		apply.setLocation(10, 220);
+		apply.addActionListener(this);
+		this.add(apply);
+	}
+	
+	public static void main(String[] args) 
+	{
+		CreateGUI();
+	}
+	
+	public static void CreateGUI()
+	{
+		frame = new PreviewWindow();
+		frame.setVisible(true);
+		
+		desc = CenterStuff.desc.getText();
+	}
+
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == apply)
+		{
+			DocumentBuild(null, null, true);
+		}
+	}
+	
+	public void DocumentBuildTest()
+	{
+		try
+		{
+			builder = new DocumentBuilder();
+		
+		
+			// Modify the first section in the document.
+			builder.getPageSetup().setOrientation(Orientation.LANDSCAPE);
+			builder.getPageSetup().setVerticalAlignment(PageVerticalAlignment.CENTER);
+			builder.writeln("Section 1, landscape oriented and text vertically centered.");
+	
+			// Start a new section and reset its formatting to defaults.
+			builder.insertBreak(BreakType.SECTION_BREAK_NEW_PAGE);
+			builder.getPageSetup().clearFormatting();
+			builder.writeln("Section 2, back to default Letter paper size, portrait orientation and top alignment.");
+	
+			builder.getDocument().save("PageSetup.ClearFormatting Out.doc");
+		}
+		catch(Exception e)
+		{}
+	}
+
+	public static void DocumentBuild(String one, String two, boolean saveEn)
+	{
+		try
+		{
+			String fileName = one;
+			String location = two;
+			char slash = 92;
+			
+			desc = CenterStuff.desc.getText();
+			builder = new DocumentBuilder();
+			builder.writeln(desc);
+			
+			if(!saveEn)
+			{
+				builder.getDocument().save(fileName + ".doc");
+				builder.getDocument().save(fileName + ".pdf");
+				
+				//Document document = new Document();
+			}
+			else
+			{
+				builder.getDocument().save(location +  fileName + ".doc");
+				builder.getDocument().save(location +  fileName + ".pdf");
+				
+			}
+		}
+		catch(Exception e)
+		{}
+	}
+}

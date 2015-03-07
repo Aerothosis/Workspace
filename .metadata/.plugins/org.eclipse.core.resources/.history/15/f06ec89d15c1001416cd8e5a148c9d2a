@@ -1,0 +1,157 @@
+package proj8a;
+
+/*
+Program: AverageRain.java
+Author: Mike
+Date: 3-2-2015
+Purpose:
+Create a class that reads from a file that holds 12 real numbers. The numbers represent the amount of 
+rainfall in inches for each of the 12 months last year. The first token in the file represents 
+January’s rainfall, the second token represents February’s rainfall and so on. Store the names of the 
+months in an array of strings. Store the rainfall amounts in a parallel array of real numbers. The 
+program should determine and display:
+	1.	The total rainfall for the year
+	2.	The average rainfall per month
+	3.	The month with the highest rainfall amount
+	4.	The month with the lowest rainfall amount
+You may choose to create a method to perform each of the determinations.
+*/
+
+
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import java.io.*;
+import java.text.*;
+import java.util.*;
+
+public class AverageRain extends JFrame implements ActionListener
+{
+	JButton generate = new JButton("Generate Numbers");
+	JButton calculate = new JButton("Calculate");
+	JTextArea output = new JTextArea("");
+	JScrollPane outputScrl = null;
+	
+	
+	static JFrame frame = null;
+	
+	DecimalFormat twoSpots = new DecimalFormat("#0.00");
+	PrintWriter outFile = null;
+	Scanner inFile = null;
+	
+	String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+	double[] rainfall = new double[12];
+	
+	AverageRain()
+	{
+		this.setSize(500, 500);
+		this.setLocation(200, 200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Yearly Rainfall Calculator");
+		
+		this.setLayout(null);
+		
+		generate.setSize(200, 30);
+		generate.setLocation(10, 10);
+		generate.setMnemonic(KeyEvent.VK_G);
+		generate.addActionListener(this);
+		this.add(generate);
+		
+		calculate.setSize(100, 30);
+		calculate.setLocation(60, 50);
+		calculate.setMnemonic(KeyEvent.VK_C);
+		calculate.addActionListener(this);
+		this.add(calculate);
+		
+		output.setEditable(false);
+		output.setBackground(Color.white);
+		outputScrl = new JScrollPane(output);
+		outputScrl.setSize(250, 100);
+		outputScrl.setLocation(150, 100);
+		this.add(outputScrl);
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		frame = new AverageRain();
+		frame.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == generate)
+		{
+			String randomNum = "";
+			try
+			{
+				outFile = new PrintWriter("rainMonths.dat");
+				
+				for(int counter = 0; counter < 12; counter++)
+				{
+					randomNum = twoSpots.format(Math.random() * 5);
+					outFile.println(randomNum);
+				}
+				
+				outFile.flush();
+			}
+			catch(FileNotFoundException fnfe)
+			{
+				JOptionPane.showMessageDialog(null, "Unable to find file. Please try again.");
+			}
+		}
+		else if(ae.getSource() == calculate)
+		{
+			double total = 0;
+			double average = 0;
+			double highest = 0;
+			int highestIndex = 0;
+			double lowest = 5;
+			int lowestIndex = 0;
+			int counter = 0;
+			
+			try
+			{
+				inFile = new Scanner(new FileReader("rainMonths.dat"));
+				
+				while(inFile.hasNext())
+				{
+					rainfall[counter] = inFile.nextDouble();
+					
+					counter++;
+				}
+				
+				for(counter = 0; counter < rainfall.length; counter++)
+				{
+					total += rainfall[counter];
+					
+					if(rainfall[counter] > highest)
+					{
+						highest = rainfall[counter];
+						highestIndex = counter;
+					}
+					if(rainfall[counter] < lowest)
+					{
+						lowest = rainfall[counter];
+						lowestIndex = counter;
+					}
+				}
+				
+				average = total / rainfall.length;
+			}
+			catch(FileNotFoundException fnfe)
+			{
+				JOptionPane.showMessageDialog(null, "File not found. Please generate numbers first.");
+			}
+			
+			
+			output.setText(
+					"Total Rainfall:           " + twoSpots.format(total) +'\n'+
+					"Average Rainfall:      " + twoSpots.format(average) +'\n'+
+					"Month with Highest: " + months[highestIndex] + " ("+ highest + ")" +'\n'+
+					"Month with Lowest : " + months[lowestIndex] + " ("+ lowest + ")");
+		}
+	}
+
+}

@@ -1,0 +1,24 @@
+package proj8a;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class AverageRain extends JFrame implements ActionListener
+{
+	
+	
+	
+	static JFrame frame = null;
+	
+	AverageRain()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		frame = new AverageRain();
+		frame.setVisible(true);
+	}
+
+}

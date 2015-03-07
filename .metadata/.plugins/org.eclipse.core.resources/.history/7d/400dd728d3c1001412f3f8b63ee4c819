@@ -1,0 +1,50 @@
+
+
+import java.io.FileReader;
+import java.util.Scanner;
+
+import javax.swing.*;
+
+public class NumberAnalysis 
+{
+	public static void main(String[] args) 
+	{
+		double total = 0;
+		double average = 0;
+		int highest = 0;
+		int lowest = 1000;
+		int counter = 0;
+		int[] numbers = new int[20];
+		String input = "";
+
+		for(counter = 0; counter < numbers.length; counter++)
+		{
+			input = JOptionPane.showInputDialog("Please enter a number for slot " + (counter + 1));
+			numbers[counter] = Integer.parseInt(input);
+		}		
+
+		for(counter = 0; counter < numbers.length; counter++)
+		{
+			total += numbers[counter];
+			
+			if(numbers[counter] > highest)
+			{
+				highest = numbers[counter];
+			}
+			if(numbers[counter] < lowest)
+			{
+				lowest = numbers[counter];
+			}
+		}
+		
+		average = total / numbers.length;
+		
+		String output = "Total: " + total + '\n' +
+				"Average: " + average + '\n' +
+				"Highest: " + highest + '\n' +
+				"Lowest:" + lowest;
+		
+		JOptionPane.showMessageDialog(null, output);
+	}
+
+}

@@ -1,0 +1,87 @@
+
+import java.io.*;
+import java.util.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+
+
+public class GenerateTwenty extends JFrame implements ActionListener
+{
+	JButton generate = new JButton("Generate");
+	JLabel quantL = new JLabel("How many numbers you want?");
+	JTextField quantity = new JTextField("");
+	JButton apply = new JButton("Apply");
+	JLabel rangeL = new JLabel("What's the range?");
+	JTextField rangeStart = new JTextField("");
+	JTextField rangeEnd = new JTextField("");
+	JCheckBox realNum = new JCheckBox("Real Nums?");
+	
+	static JFrame frame = null;
+	
+	int numbers = 0;
+	int num = 0;
+	
+	GenerateTwenty()
+	{
+		this.setSize(400, 400);
+		this.setLocation(200, 200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Generate Twenty");
+		
+		this.setLayout(null);
+		
+		quantL.setSize(200, 30);
+		quantL.setLocation(10, 10);
+		this.add(quantL);
+		
+		quantity.setSize(200, 30);
+		quantity.setLocation(10, 45);
+		this.add(quantity);
+		
+		apply.setSize(100, 30);
+		apply.setLocation(210, 45);
+		apply.setMnemonic(KeyEvent.VK_A);
+		apply.addActionListener(this);
+		this.add(apply);
+		
+		
+		
+		
+		generate.setSize(100, 30);
+		generate.setLocation(90, 300);
+		generate.setMnemonic(KeyEvent.VK_G);
+		generate.addActionListener(this);
+		this.add(generate);
+	}
+	
+	public static void main(String[] args) 
+	{
+		frame = new GenerateTwenty();
+		frame.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == apply)
+		{
+			try
+			{
+				String input = quantity.getText();
+				numbers = Integer.parseInt(input);
+			}
+			catch(NumberFormatException nfe)
+			{
+				JOptionPane.showMessageDialog(null, "Enter only whole numbers.");
+			}
+		}
+		else if(ae.getSource() == generate)
+		{
+			for(int counter = 0; counter < numbers; counter++)
+			{
+				num = Math.random() 
+			}
+		}
+	}
+
+}

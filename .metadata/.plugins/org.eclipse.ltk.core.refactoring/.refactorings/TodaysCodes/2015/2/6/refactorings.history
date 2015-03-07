@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;CountedGuess.java&apos; to &apos;TodaysCodes/src/feb02&apos;&#x0D;&#x0A;- Original project: &apos;TodaysCodes&apos;&#x0D;&#x0A;- Destination element: &apos;TodaysCodes/src/feb02&apos;&#x0D;&#x0A;- Original element: &apos;CountedGuess.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;feb02" element1="/src&lt;{CountedGuess.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1422896898432" units="1" version="1.0"/>
+</session>

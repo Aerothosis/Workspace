@@ -1,0 +1,86 @@
+public static JPanel Seven2210A()
+{
+	JPanel sev2210A = new JPanel();
+	JLabel sev2210AL = new JLabel("722.10A");
+
+
+	sev2210A.setSize(new Dimension(550, 200));
+	sev2210A.setLayout(null);
+
+	sev2210AL.setSize(100, 30);
+	sev2210AL.setLocation(0,0);
+	sev2210A.add(sev2210AL);
+
+	try
+	{
+		inFile = new Scanner(new FileReader("722.10A.txt"));
+	}
+	catch(FileNotFoundException fnfe)
+	{
+		JOptionPane.showMessageDialog(null, "File not found for 722.10A");
+	}
+
+	String[] title ={"Type of Mission/Operation","Percentage to be Served"};
+	String[] cellName = new String[22];
+	int counter = 0;
+
+	while(inFile.hasNext())
+	{
+		cellName[counter] = inFile.nextLine();
+		counter++;
+	}
+
+	Object[][] content = {
+		{cellName[0], cellName[1]},
+		{cellName[2], cellName[3]},
+		{cellName[4], cellName[5]},
+		{cellName[6], cellName[7]},
+		{cellName[8], cellName[9]},
+		{cellName[10], cellName[11]},
+		{cellName[12], cellName[13]},
+		{cellName[14], cellName[15]},
+		{cellName[16], cellName[17]},
+		{cellName[18], cellName[19]},
+		{cellName[20], cellName[21]}
+		};
+
+	JTable table = new JTable(content, title);
+	JScrollPane scrollPane = new JScrollPane(table);
+	scrollPane.setSize(500, 150);
+	scrollPane.setLocation(10,30);
+	sev2210A.add(scrollPane);
+
+	if(inputOne == 722.101 || inputTwo == 722.101)
+	{
+		sev2210A.setVisible(true);
+		if(!sev2210Abool)
+		{
+			numOfTabs += 1;
+			sev2210Abool = true;
+		}
+	}
+	else if(inputOne == 722.101999 || inputTwo == 722.101999)
+	{
+		sev2210A.setVisible(false);
+		if(sev2210Abool)
+		{
+			numOfTabs -= 1;
+			sev2210Abool = false;
+		}
+	}
+
+
+	if(numOfTabs >= 1)
+	{
+		sev2210A.setLocation(10, 0);
+	}
+	else if (numOfTabs < 1 && numOfTabs > 0)
+	{
+		sev2210A.setLocation(10, ((numOfTabs - 1) * 220));
+	}
+	else
+	{
+		sev2210A.setLocation(10, 0);
+	}
+	return sev2210A;
+}

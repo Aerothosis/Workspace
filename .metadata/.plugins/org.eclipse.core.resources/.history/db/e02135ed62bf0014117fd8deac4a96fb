@@ -1,0 +1,17 @@
+package main;
+
+/*
+Purpose: Organizes data in a file alphabetically or chronologically.
+ */
+
+import java.util.*;
+import javax.swing.*;
+import java.io.*;
+
+public class DataOrganizer 
+{
+	public static void main(String[] args) 
+	{
+		Scanner console = new Scanner(System.in);
+	}
+}

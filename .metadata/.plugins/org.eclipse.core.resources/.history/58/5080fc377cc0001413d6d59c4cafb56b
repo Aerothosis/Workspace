@@ -1,0 +1,190 @@
+package main;
+
+import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.*;
+
+public class CatCodeWindow extends JFrame implements ItemListener, ActionListener
+{
+	JCheckBox one , two, three, four, five, six, seven, eight, nine,
+	ten, eleven, twelve, thirT, fourT, fifT, sixT, sevenT, eightT,
+	nineT, twenty, twenty1, twenty2, twenty3, twenty4, twenty5;
+	
+	JLabel catCode = new JLabel("Category Codes     ");
+	JScrollPane scrollPanel = null;
+	JPanel checkPanel = new JPanel(new GridLayout(0, 5));
+	JButton apply = new JButton("Apply");
+	static JPanel catPanel = new JPanel();
+	
+	static JFrame frame = null;
+	
+	static int oneN=0, twoN=0, threeN=0, fourN=0, fiveN=0;
+	
+	CatCodeWindow()
+	{
+		this.setSize(500, 500);
+		this.setLocation(200, 200);
+		this.setTitle("Category Codes");
+		
+		one = new JCheckBox("One");
+		one.addItemListener(this);
+		two  = new JCheckBox("Two");
+		two.addItemListener(this);
+		three = new JCheckBox("Three");
+		three.addItemListener(this);
+		four  = new JCheckBox("Four");
+		four.addItemListener(this);
+		five  = new JCheckBox("Five");
+		five.addItemListener(this);
+		six  = new JCheckBox("Six");
+		six.addItemListener(this);
+		seven = new JCheckBox("7");
+		eight = new JCheckBox("8");
+		nine = new JCheckBox("9");
+		ten = new JCheckBox("10");
+		eleven = new JCheckBox("11");
+		twelve = new JCheckBox("12");
+		thirT = new JCheckBox("13");
+		fourT = new JCheckBox("14");
+		fifT = new JCheckBox("15");
+		sixT = new JCheckBox("16");
+		sevenT = new JCheckBox("17");
+		eightT = new JCheckBox("18");
+		nineT = new JCheckBox("19");
+		twenty = new JCheckBox("20");
+		twenty1 = new JCheckBox("21");
+		twenty2 = new JCheckBox("22");
+		twenty3 = new JCheckBox("23");
+		twenty4 = new JCheckBox("24");
+		twenty5 = new JCheckBox("25");
+		apply.addActionListener(this);
+		
+		//checkPanel.add(apply);
+		//checkPanel.add(catCode);
+        checkPanel.add(one);
+        checkPanel.add(two);
+        checkPanel.add(three);
+        checkPanel.add(four);
+        checkPanel.add(five);
+        checkPanel.add(six);
+        checkPanel.add(seven);
+        checkPanel.add(eight);
+        checkPanel.add(nine);
+        checkPanel.add(ten);
+        checkPanel.add(eleven);
+        checkPanel.add(twelve);
+        checkPanel.add(thirT);
+        checkPanel.add(fourT);
+        checkPanel.add(fifT);
+        checkPanel.add(sixT);
+        checkPanel.add(sevenT);
+        checkPanel.add(eightT);
+        checkPanel.add(nineT);
+        checkPanel.add(twenty);
+        checkPanel.add(twenty1);
+        checkPanel.add(twenty2);
+        checkPanel.add(twenty3);
+        checkPanel.add(twenty4);
+        checkPanel.add(twenty5);
+        
+       
+        scrollPanel = new JScrollPane(checkPanel);
+        this.add(scrollPanel);
+	}
+
+	public static JPanel CatList()
+	{
+		return catPanel;
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		frame = new CatCodeWindow();
+		frame.setVisible(true);
+	}
+
+	public void itemStateChanged(ItemEvent ie) 
+	{
+		if(ie.getSource() == one)
+		{
+			if(oneN == 0)
+			{
+				oneN = 1;
+				if(threeN == 0)
+				{
+					three.setSelected(true);
+				}
+			}
+			else
+			{
+				oneN = 0;
+				three.setSelected(false);
+			}
+		}
+		else if(ie.getSource() == two)
+		{
+			if(twoN == 0)
+			{
+				twoN = 1;
+			}
+			else
+			{
+				twoN = 0;
+			}
+		}
+		else if(ie.getSource() == three)
+		{
+			if(threeN == 0)
+			{
+				threeN = 1;
+			}
+			else
+			{
+				threeN = 0;
+			}
+		}
+		else if(ie.getSource() == four)
+		{
+			if(fourN == 0)
+			{
+				fourN = 1;
+				if(twoN == 0)
+				{
+					two.setSelected(true);
+				}
+				if(oneN == 0)
+				{
+					one.setSelected(true);
+				}
+			}
+			else
+			{
+				fourN = 0;
+				two.setSelected(false);
+				one.setSelected(false);
+			}
+		}
+		else if(ie.getSource() == five)
+		{
+			if(fiveN == 0)
+			{
+				fiveN = 1;
+			}
+			else
+			{
+				fiveN = 0;
+			}
+		}
+	}
+
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == apply)
+		{
+			CenterStuff.CreateGUI(oneN, twoN, threeN, fourN, fiveN);
+		}
+	}
+}

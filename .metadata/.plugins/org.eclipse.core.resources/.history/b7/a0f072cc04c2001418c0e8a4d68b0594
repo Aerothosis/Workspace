@@ -1,0 +1,149 @@
+package main;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import java.io.*;
+
+
+public class CenterStuff extends JPanel
+{
+	static JLabel test = new JLabel("");
+	static JPanel comp = new JPanel();
+	
+	static JScrollPane center = null;
+	
+	static JPanel descC = new JPanel();
+	static JLabel descT = new JLabel("Description");
+	static JTextArea desc = new JTextArea("");
+	static JScrollPane descScrl = new JScrollPane(desc);
+	
+	static JPanel purpP = new JPanel();
+	static JLabel purpT = new JLabel("Purpose");
+	static JTextArea purp = new JTextArea("");
+	static JScrollPane purpScrl = new JScrollPane(purp);
+	
+	static JPanel webP = new JPanel();
+	static JEditorPane website = null;
+	static JScrollPane webScrl = null;
+	
+	static FlowLayout flowLayoutMgr = new FlowLayout();
+	
+	static int one = 0;
+	static int two = 0;
+	static int three = 0;
+	static int four = 0;
+	static int five = 0;
+	
+	static int descExists = 0;
+	
+	
+	public static JPanel CreateGUI(int oneI, int twoI, int threeI, int fourI, int fiveI)
+	{
+		one = oneI;
+		two = twoI;
+		three = threeI;
+		four = fourI;
+		five = fiveI;
+		
+		comp.setLayout(new GridLayout(5,1));
+		//flowLayoutMgr.setAlignment(FlowLayout.LEFT);
+		
+		//if(one == 1)
+		//{
+			comp.add(Description(one));
+		//}
+		//if(two == 1)
+		//{
+			comp.add(Purpose(two));
+			comp.add(Website(three));
+		//}
+		//comp.add(null);
+		
+		return comp;
+	}
+	
+	public static JPanel Description(int oneD)
+	{
+		descC.setPreferredSize(new Dimension(800, 250));
+		descC.setLayout(null);
+		//descC.setLayout(new BorderLayout());
+		//descC.setLocation(10, 10);
+		
+		descT.setSize(100, 30);
+		descT.setLocation(0,0);
+		descScrl.setSize(400, 200);
+		descScrl.setLocation(0, 35);
+		descC.add(descT);
+		descC.add(descScrl);
+
+		if(oneD == 1)
+		{
+			descC.setVisible(true);
+		}
+		else
+		{
+			descC.setVisible(false);
+		}
+
+		
+		return descC;
+		
+	}
+	
+	public static JPanel Purpose(int oneP)
+	{
+		purpP.setPreferredSize(new Dimension(800, 250));
+		purpP.setLayout(null);
+
+		//if(one == 1)
+		//{
+		//	purpP.setLocation(10, 220);
+		//}
+		//else
+		//{
+		//	purpP.setLocation(10, 10);
+		//}
+		
+		purpT.setSize(100, 30);
+		purpT.setLocation(0,0);
+		purpScrl.setSize(400, 200);
+		purpScrl.setLocation(0,35);
+		purpP.add(purpT, BorderLayout.NORTH);
+		purpP.add(purpScrl, BorderLayout.CENTER);
+		
+		if(oneP == 1)
+		{
+			purpP.setVisible(true);
+		}
+		else
+		{
+			purpP.setVisible(false);
+		}
+		
+		return purpP;
+	}
+	
+	public static JPanel Website(int oneW)
+	{
+		webP.setPreferredSize(new Dimension(800, 250));
+		webP.setLayout(null);
+		
+		try
+		{
+			website = new JEditorPane("http://www.google.com;");;
+		}
+		catch(IOException ioe)
+		{
+			JOptionPane.showMessageDialog(null, "Didn't work.");
+		}
+		
+		webScrl = new JScrollPane(website);
+		webScrl.setSize(400, 200);
+		webScrl.setLocation(0, 0);
+		webP.add(webScrl);
+		
+		return webP;
+	}
+}

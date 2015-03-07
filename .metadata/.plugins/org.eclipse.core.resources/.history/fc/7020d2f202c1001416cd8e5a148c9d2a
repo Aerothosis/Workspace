@@ -1,0 +1,33 @@
+package mar2;
+
+/*
+This class instantiates an object of the array list type and
+uses some of the methods.
+*/
+
+import java.util.*;
+
+public class SuperArray 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList numbers = new ArrayList();
+		
+		Integer newElement = new Integer(105);
+		
+		numbers.add(new Integer(56));
+		
+		numbers.add(newElement);
+		
+		System.out.println("A new ArrayList contains " + numbers.size() + " elements.");
+		
+		System.out.println("105 is stored at " + numbers.indexOf(newElement));
+		
+		for(int i = 0; i < numbers.size(); i++)
+		{
+			System.out.println(numbers.get(i));
+		}
+		
+		Object[] array = numbers.toArray();
+	}
+}

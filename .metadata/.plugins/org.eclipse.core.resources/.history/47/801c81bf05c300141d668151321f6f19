@@ -1,0 +1,295 @@
+package main;
+
+import java.awt.*;
+import javax.swing.*;
+import java.util.*;
+import java.io.*;
+
+public class CatCodeTables extends JPanel 
+{
+	static JPanel tables = new JPanel();
+	
+	static JPanel sev2210A = new JPanel();
+	static JLabel sev2210AL = new JLabel("722.10A");
+	static JPanel sev2210B = new JPanel();
+	static JLabel sev2210BL = new JLabel("722.10B");
+	static JPanel sev2121 = new JPanel();
+	
+	static boolean sev2210Abool = false;
+	static boolean sev2210Bbool = false;
+	static boolean sev2121bool = false;
+	static double inputOne = 0, inputTwo = 0;
+	
+	static int numOfTabs = 0;
+	static int currentBottom = 0;
+	
+	static Scanner inFile = null;
+	
+	public static JPanel CreateGUI(double oneI, double twoI)
+	{
+		tables.setPreferredSize(new Dimension(550, (int)(numOfTabs * 220)));
+		tables.setLayout(null);
+		inputOne = oneI;
+		inputTwo = twoI;
+		
+		tables.add(Seven2210A());
+		if(!sev2210Abool)
+			sev2210A.setVisible(false);
+		tables.add(Seven2210B());
+		if(!sev2210Bbool)
+			sev2210B.setVisible(false);
+		tables.add(Seven2121());
+		if(!sev2121bool)
+			sev2121.setVisible(false);
+		
+		CenterStuff.desc.setText("" + numOfTabs);
+		
+		
+		return tables;
+	}
+
+	public static JPanel Seven2210A()
+	{
+		sev2210A.setSize(new Dimension(550, 200));
+		sev2210A.setLayout(null);
+		//seven2210A.setLocation(0,0);
+		sev2210AL.setSize(100, 30);
+		sev2210AL.setLocation(0,0);
+		sev2210A.add(sev2210AL);
+		
+		try
+		{
+			inFile = new Scanner(new FileReader("722.10A.txt"));
+		}
+		catch(FileNotFoundException fnfe)
+		{
+			JOptionPane.showMessageDialog(null, "File not found for 722.10A.");
+		}
+		
+		String[] title ={"Type of Mission/Operation", "Percentage to be Served"};
+		String[] cellName = new String[22];
+		int counter = 0;
+		while(inFile.hasNext())
+		{
+			cellName[counter] = inFile.nextLine();
+			counter++;
+		}
+
+		Object[][] content = {
+			{cellName[0], cellName[1]},
+			{cellName[2], cellName[3]},
+			{cellName[4], cellName[5]},
+			{cellName[6], cellName[7]},
+			{cellName[8], cellName[9]},
+			{cellName[10], cellName[11]},
+			{cellName[12], cellName[13]},
+			{cellName[14], cellName[15]},
+			{cellName[16], cellName[17]},
+			{cellName[18], cellName[19]},
+			{cellName[20], cellName[21]}
+			};
+		
+		JTable table = new JTable(content, title);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setSize(500, 150);
+		scrollPane.setLocation(0,30);
+		sev2210A.add(scrollPane);
+		
+		if(inputOne == 722.101 || inputTwo == 722.101)
+		{
+			sev2210A.setVisible(true);
+			if(!sev2210Abool)
+			{
+				numOfTabs += 1;
+				sev2210Abool = true;
+			}
+			CenterStuff.desc.setText("" + numOfTabs);
+		}
+		else if(inputOne == 722.101999 || inputTwo == 722.101999)
+		{
+			sev2210A.setVisible(false);
+			if(sev2210Abool)
+			{
+				numOfTabs -= 1;
+				sev2210Abool = false;
+			}
+			CenterStuff.desc.setText("" + numOfTabs);
+		}
+		//else
+		//{
+		//	sev2210A.setVisible(false);
+		//}
+			
+		sev2210A.setLocation(10,0);
+		return sev2210A;
+	}
+	
+	public static JPanel Seven2210B()
+	{
+		sev2210B.setSize(new Dimension(550, 200));
+		sev2210B.setLayout(null);
+		//seven2210A.setLocation(0,0);
+		sev2210BL.setSize(100, 30);
+		sev2210BL.setLocation(0,0);
+		sev2210B.add(sev2210BL);
+		
+		
+		
+		try
+		{
+			inFile = new Scanner(new FileReader("722.10B.txt"));
+		}
+		catch(FileNotFoundException fnfe)
+		{
+			JOptionPane.showMessageDialog(null, "File not found for 722.10B.");
+		}
+		
+		String[] title ={"Number of Enlisted Personnel to be Served", "", "Gross Square Foot Area"};
+		String[] cellName = new String[36];
+		int counter = 0;
+		while(inFile.hasNext())
+		{
+			cellName[counter] = inFile.nextLine();
+			counter++;
+		}
+
+		Object[][] content = {
+			{cellName[0], cellName[1], cellName[2]},
+			{cellName[3], cellName[4], cellName[5]},
+			{cellName[6], cellName[7], cellName[8]},
+			{cellName[9], cellName[10], cellName[11]},
+			{cellName[12], cellName[13], cellName[14]},
+			{cellName[15], cellName[16], cellName[17]},
+			{cellName[18], cellName[19], cellName[20]},
+			{cellName[21], cellName[22], cellName[23]},
+			{cellName[24], cellName[25], cellName[26]},
+			{cellName[27], cellName[28], cellName[29]},
+			{cellName[30], cellName[31], cellName[32]},
+			{cellName[33], cellName[34], cellName[35]}
+			};
+		
+		JTable table = new JTable(content, title);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setSize(500, 150);
+		scrollPane.setLocation(10,30);
+		sev2210B.add(scrollPane);
+		
+		
+		if(inputOne == 722.102 || inputTwo == 722.102)
+		{
+			sev2210B.setVisible(true);
+			if(!sev2210Bbool)
+			{
+				numOfTabs += 1;
+				sev2210Bbool = true;
+			}
+			CenterStuff.desc.setText("" + numOfTabs);
+		}
+		else if(inputOne == 722.102999 || inputTwo == 722.102999)
+		{
+			sev2210B.setVisible(false);
+			if(sev2210Bbool)
+			{
+				numOfTabs -= 1;
+				sev2210Bbool = false;
+			}
+			CenterStuff.desc.setText("" + numOfTabs);			
+		}
+		//else
+		//{
+		//	sev2210B.setVisible(false);
+		//}
+
+		double sev2210BLoc = numOfTabs -1;
+		if(sev2210BLoc != 0)
+		{
+			sev2210B.setLocation(10, 220);
+		}
+		else
+		{
+			sev2210B.setLocation(10, 0);
+		}
+		
+		return sev2210B;
+	}
+	
+	public static JPanel Seven2121()
+	{
+		JLabel sev2121L = new JLabel("721.21");
+
+
+		sev2121.setSize(new Dimension(550, 200));
+		sev2121.setLayout(null);
+
+		sev2121L.setSize(100, 30);
+		sev2121L.setLocation(0,0);
+		sev2121.add(sev2121L);
+
+		try
+		{
+			inFile = new Scanner(new FileReader("721.21.txt"));
+		}
+		catch(FileNotFoundException fnfe)
+		{
+			JOptionPane.showMessageDialog(null, "File not found for 721.21");
+		}
+
+		String[] title ={"(2+2) module","3 Stories or Less","More than 3 Stories"};
+		String[] cellName = new String[9];
+		int counter = 0;
+
+		while(inFile.hasNext())
+		{
+			cellName[counter] = inFile.nextLine();
+			counter++;
+		}
+
+		Object[][] content = {
+			{cellName[0], cellName[1], cellName[2]},
+			{cellName[3], cellName[4], cellName[5]},
+			{cellName[6], cellName[7], cellName[8]}
+			};
+
+		JTable table = new JTable(content, title);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setSize(500, 150);
+		scrollPane.setLocation(10,30);
+		sev2121.add(scrollPane);
+
+		if(inputOne == 721.21 || inputTwo == 721.21)
+		{
+			sev2121.setVisible(true);
+			if(!sev2121bool)
+			{
+				numOfTabs += 1;
+				sev2121bool = true;
+			}
+		}
+		else if(inputOne == 721.21999 || inputTwo == 721.21999)
+		{
+			sev2121.setVisible(false);
+			if(sev2121bool)
+			{
+				numOfTabs -= 1;
+				sev2121bool = false;
+			}
+		}
+
+
+		if(numOfTabs >= 3)
+		{
+			sev2121.setLocation(10, 440);
+		}
+		else if (numOfTabs < 3 && numOfTabs > 0)
+		{
+			sev2121.setLocation(10, ((numOfTabs - 1) * 220));
+		}
+		else
+		{
+			sev2121.setLocation(10, 0);
+		}
+		return sev2121;
+	}
+
+
+}

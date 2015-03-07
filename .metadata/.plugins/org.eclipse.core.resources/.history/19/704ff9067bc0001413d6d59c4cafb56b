@@ -1,0 +1,14 @@
+package main;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class CatCodeWindow extends JFrame 
+{
+
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

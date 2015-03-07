@@ -1,0 +1,76 @@
+package lab9a;
+
+/*
+Program: RandomEval.java
+Author: Mike
+Date: 3-2-2015
+Purpose:
+Create a java program which can be used to evaluate how random the numbers generated 
+by Math.random() really are. In the main method of the class declare an array that 
+can store whole numbers and set the size to 10. Iteratively generate a random number 
+between 0 and 9, 1000 times. If the random number returned is zero, increment the 
+value stored in the corresponding element of the array by 1 and so on. After all the 
+random numbers have been generated display the counts with a meaningful message that 
+reports the total number of each digit generated.  Do not include any selection 
+statements in your solution. 
+ */
+
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.event.*;
+
+public class RandomEval extends JFrame implements ActionListener
+{
+	JButton generate = new JButton("GENERATE NUMBERS!");
+	JButton reset = new JButton("Reset");
+	static JTextArea output = new JTextArea("");
+	JScrollPane outputScrl = null;
+	
+	static JFrame frame = null;
+	
+	RandomEval()
+	{
+		this.setSize(400, 400);
+		this.setLocation(200, 200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Random Number Evaluation");
+		
+		this.setLayout(null);
+		
+		generate.setSize(200, 30);
+		generate.setLocation(85, 10);
+		generate.addActionListener(this);
+		this.add(generate);
+		
+		reset.setSize(100, 30);
+		reset.setLocation(135, 45);
+		reset.addActionListener(this);
+		this.add(reset);
+		
+		output.setEditable(false);
+		output.setBackground(Color.white);
+		outputScrl = new JScrollPane(output);
+		outputScrl.setSize(200, 200);
+		outputScrl.setLocation(85, 85);
+		this.add(outputScrl);
+	}
+	
+	public static void main(String[] args)
+	{
+		frame = new RandomEval();
+		frame.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent ae) 
+	{
+		if(ae.getSource() == generate)
+		{
+			output.setText("Test");
+		}
+		else if(ae.getSource() == reset)
+		{
+			output.setText("");
+		}
+	}
+}

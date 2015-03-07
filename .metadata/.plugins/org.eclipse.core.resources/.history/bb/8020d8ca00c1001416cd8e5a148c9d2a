@@ -1,0 +1,15 @@
+package mar2;
+
+/*
+This class instantiates an object of the array list type and
+uses some of the methods.
+*/
+
+public class SuperArray 
+{
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}

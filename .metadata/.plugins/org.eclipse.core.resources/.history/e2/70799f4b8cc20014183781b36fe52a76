@@ -1,0 +1,40 @@
+
+
+/*
+This program allows the user to select number of rows and columns and
+generate code for a table.
+ */
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
+
+public class RowsAndColumns extends JFrame
+{
+	JTextField rowIn = new JTextField("");
+	JTextField colIn = new JTextField("");
+	JTextField fileName = new JTextField("");
+	JButton generate = new JButton("Generate");
+	JButton reset = new JButton("Reset");
+	
+	PrintWriter outFile = null;
+	
+	static JFrame frame = null;
+	
+	RowsAndColumns()
+	{
+		this.setSize(300, 300);
+		this.setLocation(200, 200);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setTitle("Rows & Columns");
+		
+		this.setLayout(null);
+	}
+	
+	public static void main(String[] args) 
+	{
+		frame = new RowsAndColumns();
+		frame.setVisible(true);
+	}
+
+}

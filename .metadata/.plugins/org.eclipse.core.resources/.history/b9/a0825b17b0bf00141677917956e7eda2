@@ -1,0 +1,38 @@
+package main;
+
+import javax.swing.*;
+
+import java.awt.event.*;
+import java.awt.*;
+
+public class CheckListMenu extends JPanel implements ItemListener
+{	
+	public CheckListMenu(){
+		super(new BorderLayout());
+		
+		JCheckBox one = new JCheckBox("One");
+		one.addItemListener(this);
+		JCheckBox two = new JCheckBox("Two");
+		two.addItemListener(this);
+		JCheckBox three = new JCheckBox("Three");
+		three.addItemListener(this);
+		
+		
+		
+		JPanel panel = new JPanel(new GridLayout(0, 1));
+		panel.add(one);
+		panel.add(two);
+		panel.add(three);
+	}
+	
+	public static void createGUI()
+	{
+		final JComponent newContentPane = new CheckListMenu();
+		newContentPane.setOpaque(true);
+	}
+
+	public void itemStateChanged(ItemEvent ie) 
+	{
+		
+	}
+}
