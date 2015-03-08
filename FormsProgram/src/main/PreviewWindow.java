@@ -1,7 +1,6 @@
 package main;
 
 import javax.swing.*;
-import com.aspose.*;
 import com.aspose.words.*;
 import java.awt.event.*;
 import java.io.*;
